@@ -1,6 +1,7 @@
 import os
 import smtplib
 from time import sleep
+from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -70,4 +71,7 @@ while True:
                 send_mail(subject, "Данные вновь стали записываться в Лог " + logs_files[file]['path']);
             else:
                 continue;
-    sleep(300.0);
+    if datetime.strftime(datetime.now(), "%H:%M") >= '23:45':
+        sleep(1500);
+    else:
+        sleep(300);
