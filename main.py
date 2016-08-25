@@ -70,7 +70,7 @@ while True:
                 subject = 'Good Events Log'
                 send_mail(subject, "Данные вновь стали записываться в Лог " + logs_files[file]['path']);
             else:
-                continue;
+                logs_files[file]['size_old'] = os.path.getsize(logs_files[file]['path']);
     if datetime.strftime(datetime.now(), "%H:%M") >= '23:45':
         sleep(1500);
     else:
